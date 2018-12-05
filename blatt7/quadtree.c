@@ -32,7 +32,7 @@ void setColor(struct Node *root, int row, int col, bool color) {
 		return;
 	}
 
-	if (!(root->k[0] || root->k[1] || root->k[2] || root->k[3])) {
+	if (isLeaf(root)) {
 		// Current node is a leaf
 		if (root->color == color) {
 			// We are at leaf that already has new color
@@ -101,16 +101,14 @@ void setColor(struct Node *root, int row, int col, bool color) {
 }
 
 void printNodeText(struct Node *k) {
-	if (k->k[0] || k->k[1] || k->k[2] || k->k[3]) {
-		// Not a leaf
+	if (isLeaf(k)) {
+		printf(k->color ? "W" : "B");
+	} else {
 		printf("[");
 		for (int i = 0; i < 4; ++i) {
 			printNodeText(k->k[i]);
 		}
 		printf("]");
-	} else {
-		// Leaf
-		printf(k->color ? "W" : "B");
 	}
 }
 

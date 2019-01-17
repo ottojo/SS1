@@ -99,12 +99,15 @@ void findLargestFile(char *directoryPath) {
 }
 
 int main(int argc, char *argv[]) {
-
     int c = 10;
     char *directory = ".";
 
     if (argc >= 2) {
         if (argv[1][0] == '-') {
+            if (argv[1][1] == '?') {
+                printf("Usage: ./du_hogs [-N] [dir]\n");
+                exit(EXIT_SUCCESS);
+            }
             c = atoi(argv[1] + 1);
         }
 

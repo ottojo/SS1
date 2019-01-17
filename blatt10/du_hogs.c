@@ -120,7 +120,7 @@ int main(int argc, char *argv[]) {
 
     int i = 0;
     struct element *e = list;
-    while (i < c) {
+    while (i < c && e) {
         printf("%10jd %s\n", (intmax_t) e->data.size, e->data.path);
         e = e->next;
         i++;

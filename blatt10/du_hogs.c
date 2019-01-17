@@ -102,18 +102,24 @@ int main(int argc, char *argv[]) {
     int c = 10;
     char *directory = ".";
 
-    if (argc >= 2) {
+    if (argc == 2) {
         if (argv[1][0] == '-') {
+            // Only number supplied
             if (argv[1][1] == '?') {
                 printf("Usage: ./du_hogs [-N] [dir]\n");
-                exit(EXIT_SUCCESS);
+                exit(EXIT_FAILURE);
             }
             c = atoi(argv[1] + 1);
+        } else {
+            // Only dir supplied
+            directory = argv[1];
         }
+    }
 
-        if (argc >= 3) {
-            directory = argv[2];
-        }
+    if (argc == 3) {
+        // Both number and dir supplied
+        c = atoi(argv[1] + 1);
+        directory = argv[2];
     }
 
     findLargestFile(directory);

@@ -106,7 +106,7 @@ int main(int argc, char *argv[]) {
         if (argv[1][0] == '-') {
             // Only number supplied
             if (argv[1][1] == '?') {
-                fprintf(stderr, "Usage: %s [-N] [dir]\n", argv[0]);
+                fprintf(stderr, "Usage: main [-N] [dir]\n");
                 exit(EXIT_FAILURE);
             }
             c = atoi(argv[1] + 1);
